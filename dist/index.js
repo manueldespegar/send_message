@@ -5272,39 +5272,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const github = __importStar(__webpack_require__(469));
 const axios_1 = __importDefault(__webpack_require__(53));
-function getTextColor(state, isMerged) {
-    if (isMerged) {
-        return '#6f42c1';
-    }
-    if (state === 'closed') {
-        return '#ff0000';
-    }
-    return '#2cbe4e';
-}
-const textButton = (text, url) => ({
-    textButton: {
-        text,
-        onClick: { openLink: { url } }
-    }
-});
-function processPullRequest() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const { owner, repo } = github.context.repo;
-        const pullRequestPayload = github.context
-            .payload;
-        const pullRequest = pullRequestPayload.pull_request;
-        core.info(`${pullRequest.title} ${pullRequest.state} by ${pullRequest.user.login}`);
-        return {
-            cards: []
-        };
-    });
-}
 function sendMessage(url) {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log('text para qeu funcione');
         core.info(github.context.eventName);
+        core.debug('funciona porfavor');
         core.info(JSON.stringify(github.context.payload));
         let body = null;
-        body = yield processPullRequest();
+        body = 'Funcona porqueria';
         const response = yield axios_1.default.post(url, body);
         if (response.status !== 200) {
             throw new Error(`Google Chat notification failed. response status=${response.status}`);
