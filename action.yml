@@ -1,13 +1,8 @@
-name: 'google-chat-github-notification'
-description: 'Google Chat Notification for GitHub Actions'
-author: 'CommonMarvel'
-branding:
-  icon: 'at-sign'
-  color: 'yellow'
-inputs:
-  url:
-    description: 'google chat webhook url.'
-    required: true
+name: google chat notification
+description: send message
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: docker
+  image: Dockerfile
+branding:
+  icon: airplay
+  color: white
